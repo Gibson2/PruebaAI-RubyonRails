@@ -18,6 +18,18 @@
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
+*.pid
+*.pid.lock
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore environment variables file.
+/.env
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep

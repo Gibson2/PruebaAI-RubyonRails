@@ -12,7 +12,7 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 - **Ruby**: versión 3.2.0 o superior
 - **Rails**: versión 7.0.0 o superior
-- **SQLite3**: para la base de datos (incluido por defecto en Rails)
+- **PostgreSQL**: versión 14 o superior
 - **Node.js**: versión 14.0 o superior (requerido para Asset Pipeline)
 - **Bundler**: para gestionar dependencias de gemas
 
@@ -31,7 +31,22 @@ cd PruebaAI-RubyonRails
 bundle install
 ```
 
-### 3. Crear la base de datos
+### 3. Configurar la base de datos
+
+Crea un archivo local `.env` con tus credenciales de base de datos. Ejemplo:
+
+```bash
+cp .env.example .env
+```
+
+Asegúrate de que `.env` no se suba al repositorio remoto, y que contenga variables como:
+- `DATABASE_USER`
+- `DATABASE_PASSWORD`
+- `POSTGRES_DB_DEVELOPMENT`
+- `POSTGRES_DB_TEST`
+- `POSTGRES_DB_PRODUCTION`
+
+### 4. Crear la base de datos
 
 ```bash
 rails db:create
@@ -90,8 +105,9 @@ PruebaAI/
 ## Dependencias principales
 
 - **rails**: Framework web principal
-- **sqlite3**: Adaptador de base de datos
+- **pg**: Adaptador de PostgreSQL
 - **puma**: Servidor web
+- **dotenv-rails**: Carga variables de entorno desde `.env`
 - **sprockets-rails**: Asset pipeline
 - **importmap-rails**: Gestor de módulos JavaScript
 
